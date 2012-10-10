@@ -3,6 +3,10 @@ class rvm::dependencies::centos {
   case $::operatingsystemrelease {
     /^6\..*/: {
       if ! defined(Package['libcurl-devel']) { package { 'libcurl-devel':      ensure => installed } }
+      if ! defined(Package['libtool']) { package { 'libtool':      ensure => installed } }
+      if ! defined(Package['bison']) { package { 'bison':      ensure => installed } }
+      if ! defined(Package['libffi-devel']) { package { 'libffi-devel':      ensure => installed } }
+      if ! defined(Package['libyaml-devel']) { package { 'libyaml-devel':      ensure => installed } }
     }
     default: {
       if ! defined(Package['curl-devel'])    { package { 'curl-devel':      ensure => installed } }
